@@ -1,0 +1,122 @@
+body {
+    background: linear-gradient(to bottom, #517751, #3e5738, #23411f);
+    background-attachment: fixed;
+}
+/*podtrzeni tlacitka prihlaseni v navigaci*/
+.prihlaseni:hover::after {
+    width: 100%;
+}
+.prihlaseni::after {
+    content: '';
+    width: 20%;
+    height: 2px;
+    display: block;
+    background-color: indianred;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+/*uvodni obrazovka na starankach*/
+.intro {
+    height: 100vh;
+}
+.intro_registration {
+    height: auto;
+}
+.intro img, .intro_registration img{
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+.intro_photo_prekryti {
+    background-color: rgba(0, 0, 0, 0.29);
+    height: 100%;
+    z-index: 1;
+}
+
+/*paticka*/
+.footer {
+    background-color: indianred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+/*navigacni lista*/
+.navbar {
+    background-color: black;
+    height: 15vh;
+}
+
+/*pozadi formularu*/
+.login_form_background {
+    background-color: rgba(25, 58, 25, 0.63);
+    box-shadow: rgba(0, 0, 0, 0.24) 10px 10px 10px 10px;
+}
+.registration_form_background {
+    background-color: rgba(205, 92, 92, 0.52);
+    box-shadow: rgba(0, 0, 0, 0.24) 10px 10px 10px 10px;
+    backdrop-filter: blur(10px);
+    margin: 20vh 0!important;
+    min-height: 45vh;
+
+}
+.new_event_background {
+    background-color: rgba(58, 63, 53, 0.3);
+    box-shadow: rgba(0, 0, 0, 0.24) 10px 10px 10px 10px;
+    backdrop-filter: blur(10px);
+}
+
+/*podtrzeni nadpisu ve formularich*/
+.login_headline::after {
+    content: '';
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 70%;
+    margin: auto;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: block;
+}
+.registration_headline::after, .new_event_headline::after {
+    content: '';
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 60%;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: block;
+}
+
+
+
+@media screen and (max-width: 991px) {
+    .sidebar {
+        background-color: rgba(34, 54, 29, 0.2);
+        backdrop-filter: blur(10px);
+        width: 80%!important;
+    }
+    .registration_form_background {
+        margin-bottom: 25vh;
+    }
+    .footer {
+        height: 5vh;
+    }
+    .intro, .intro img {
+        height: 95vh;
+    }
+
+}
+
+@media screen and (max-width: 576px){
+    .file_upload {
+        font-size: 0.8rem;
+    }
+}
