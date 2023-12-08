@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (passwordValue != confirmValue) {
             password_match_message.textContent = "Hesla se neshodují";
+        } else if(passwordValue == "" && confirmValue == ""){
+            password_match_message.textContent = "\u00A0";
         } else {
             password_match_message.textContent = "Hesla se shodují";
         }
@@ -45,3 +47,44 @@ document.addEventListener('DOMContentLoaded', function() {
     password.addEventListener('input', validatePassword);
     confirm_password.addEventListener('input', validatePassword);
 });
+
+function vyberPrava() {
+    // Získání odkazu na oba selectboxy
+    var firstSelect = document.getElementById('pravo');
+    var secondSelect = document.getElementById('pozice');
+
+    // Získání vybrané hodnoty z prvního selectboxu
+    var selectedValue = firstSelect.value;
+
+    // Zablokování nebo povolení druhého selectboxu na základě vybrané hodnoty
+    if (selectedValue === '4') {
+        secondSelect.disabled = false; // Povolit druhý selectbox
+    } else {
+        secondSelect.disabled = true; // Zablokovat druhý selectbox
+    }
+}
+
+function kontrolaDatumu(a) {
+    var dateStartInput = document.getElementById('date_start');
+    var dateEndInput = document.getElementById('date_end');
+
+    var dateStart = new Date(dateStartInput.value);
+    var dateEnd = new Date(dateEndInput.value);
+
+    var text = document.getElementById('vypis_kontrola_vstupu');
+
+    if (a === 1) {
+        if (dateStart >= dateEnd) {
+            text.textContent = "Druhý datum a čas musí být později než první!";
+        } else {
+            text.textContent = "\u00A0";
+        }
+    } else if (a === 2) {
+        if (dateStart >= dateEnd) {
+            alert("Zadaný datum konání není v pořádku.");
+            return false;
+        } else {
+            return true;
+        }
+    }
+}

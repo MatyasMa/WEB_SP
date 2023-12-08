@@ -49,7 +49,7 @@
                         <a class="nav-link" href="members.php">Členové</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="new_event.php">Přidání akce</a>
+                        <a class="nav-link" href="add_event.php">Přidání akce</a>
                     </li>
                 </ul>
                 <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">

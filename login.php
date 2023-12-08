@@ -9,10 +9,10 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-8 col-10">
                     <h2 class="fs-2 login_headline mb-4 text-center">Přihlášení</h2>
-                    <form method="POST">
+                    <form method="POST" action="forms/logging_in.php" enctype="multipart/form-data">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="loginName" placeholder="E-mail">
-                            <input type="password" class="form-control mt-4" id="password" placeholder="Heslo">
+                            <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="E-mail">
+                            <input type="password" class="form-control mt-4" id="password" name="loginPassword" placeholder="Heslo">
                         </div>
                         <div class="form-group form-check mt-4">
                             <input type="checkbox" class="form-check-input" id="rememberMe">

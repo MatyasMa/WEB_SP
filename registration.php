@@ -30,22 +30,22 @@
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Heslo">
                             </div>
                             <div class="form-group col-md-6 mt-3">
-                                <input type="password" class="form-control" id="password2" name="password2" placeholder="Heslo znovu pro ověření">
+                                <input type="password" class="form-control" id="password2" name="password2"
+                                       placeholder="Heslo znovu pro ověření" default=" ">
                             </div>
-                            <p id="password_match_message"></p>
+                            <p id="password_match_message" class="mb-0">&nbsp</p>
                             <!-- TODO: oveřit zda se odevšle vždy nebo pouze pokud se shodují hesla -->
                         </div>
 
                         <div class="row">
                             <div class="form-group col-md-6 mt-3">
                                 <label for="pravo">Právo</label>
-                                <select id="pravo" name="pravo">
-                                    <option value="4">Hráč</option>
+                                <select id="pravo" name="pravo" onchange="vyberPrava()">
+                                    <option value="4" selected>Hráč</option>
                                     <option value="3">Trenér</option>
                                     <option value="2">Majitel</option>
                                     <option value="1">Admin</option>
                                 </select>
-                                <!-- TODO: když se vybere neco jiného než hráč, nenastavuji pozici -->
                             </div>
 
                             <div class="form-group col-md-6 mt-3">
@@ -66,8 +66,8 @@
                         </div>
                         <div class="form-group mt-4">
                             <textarea class="form-control" id="description" rows="4"
-                                      placeholder="Věk, zkušenosti, preferované pozice, tel..."
-                                      name="description" required>aaa</textarea>
+                                      placeholder="Zkušenosti, minulé týmy, konkrétní pozice, jiné pozice..."
+                                      name="description" required></textarea>
                         </div>
 
 

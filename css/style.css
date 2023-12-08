@@ -96,6 +96,14 @@ body {
 }
 
 
+/* Stranka Clenove */
+.prehled_clenu {
+    margin-top: 20vh;
+}
+.prehled_clenu table {
+    margin: auto;
+}
+
 
 @media screen and (max-width: 991px) {
     .sidebar {

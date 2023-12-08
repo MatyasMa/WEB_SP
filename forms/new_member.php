@@ -39,22 +39,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_POST["name"]) && !empty($_POST["surname"]) && !empty($_POST["email"])
         && !empty($_POST["phone"]) && !empty($_POST["date"]) && !empty($_POST["description"])) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO `CLENOVE` (`jmeno`, `prijmeni`, `email`, `tel`, `datum_narozeni`, `o_clenovi`, `heslo`,
+        echo "<br>je to něco:".$position."<br>";
+        if($position == 0){
+            $sql = "INSERT INTO `CLENOVE` (`jmeno`, `prijmeni`, `email`, `tel`, `datum_narozeni`, `o_clenovi`, `heslo`,
+                           `id_pravo`) VALUES ('$name','$surname','$email','$phone','$date','$description',
+                                                            '$hashedPassword','$right')";
+        } else {
+            $sql = "INSERT INTO `CLENOVE` (`jmeno`, `prijmeni`, `email`, `tel`, `datum_narozeni`, `o_clenovi`, `heslo`,
                            `id_pravo`, `id_pozice`) VALUES ('$name','$surname','$email','$phone','$date','$description',
                                                             '$hashedPassword','$right','$position')";
-        echo "ahoj";
+        }
     } else {
         echo "chyba čtení dat";
     }
 
 
+    // TODO: jak budu fotky číst ?
     // Zkontrolujte, zda byl soubor nahrán bez chyb
     if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0) {
-        $targetDirectory = "../photos/";  // Název složky, kam budete ukládat soubory
+        // Odstranění diakritiky ve jménu a příjmení
+        $diakritika = array(
+            'á' => 'a', 'č' => 'c', 'ě' => 'e',
+            'é' => 'e', 'í' => 'i', 'ň' => 'n',
+            'ó' => 'o', 'ř' => 'r', 'š' => 's',
+            'ť' => 't', 'ú' => 'u', 'ů' => 'u',
+            'ý' => 'y', 'ž' => 'z',
+            'Á' => 'A', 'Č' => 'C', 'Ě' => 'E',
+            'É' => 'E', 'Í' => 'I', 'Ň' => 'N',
+            'Ó' => 'O', 'Ř' => 'R', 'Š' => 'S',
+            'Ť' => 'T', 'Ú' => 'U', 'Ů' => 'U',
+            'Ý' => 'Y', 'Ž' => 'Z'
+        );
+        $nameBezDia = strtr($name, $diakritika);
+        $surnameBezDia = strtr($surname, $diakritika);
+
+
+        // Odstranění mezev při možnosti napřklad 2 příjmení
+        $nameBezDiaAMezer = str_replace(' ', '', $nameBezDia);
+        $surnameBezDiaAMezer = str_replace(' ', '', $surnameBezDia);
+
+        // Název složky, kterou chcete vytvořit
+        $slozka = $nameBezDiaAMezer."_".$surnameBezDiaAMezer."_".$date;
+
+        // Vytvoření složky
+        if (!file_exists("../photos/$slozka")) {
+            mkdir("../photos/$slozka", 0777, true); // třetí parametr true znamená vytvořit i nadřazené složky, pokud neexistují
+            echo 'Složka byla úspěšně vytvořena.';
+        } else {
+            echo 'Složka již existuje.';
+        }
+
+        // Název složky, kam budete ukládat soubory
+        $targetDirectory = "../photos/$slozka/";
 
         // Získání názvu a cesty k nahrávanému souboru
-        $targetFile = $targetDirectory . $name . "-" . $surname . "-" . basename($photo_name);
+        $targetFile = $targetDirectory . basename($photo_name);
 
+        echo $targetFile;
         // Přesunutí souboru do cílové složky
         if (move_uploaded_file($photo_tmp, $targetFile)) {
             echo "Soubor " . htmlspecialchars(basename($photo_name)) . " byl úspěšně nahrán.";
