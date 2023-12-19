@@ -91,21 +91,18 @@ class RegistrationController extends ControllerBasics implements IController
                 $surnameBezDiaAMezer = str_replace(' ', '', $surnameBezDia);
 
                 // Název složky, kterou chcete vytvořit
-                $slozka = __DIR__ . "/photos/" . $nameBezDiaAMezer . "_" . $surnameBezDiaAMezer . "_" . $date;
+                $slozka = "photos/" . $nameBezDiaAMezer . "_" . $surnameBezDiaAMezer . "_" . $date ."/";
 
                 echo "$slozka";
 
                 // Vytvoření složky
                 if (!file_exists($slozka)) {
                     // todo: nefunguje!!!
-                    $result = mkdir($slozka, 0777, true); // třetí parametr true znamená vytvořit i nadřazené složky, pokud neexistují
-                    echo $result;
+                    mkdir($slozka, 0777, true); // třetí parametr true znamená vytvořit i nadřazené složky, pokud neexistují
                     //error_reporting(E_ALL);
                     //ini_set('display_errors', 1);
-                    echo 'Složka byla úspěšně vytvořena.';die();
+                    echo 'Složka byla úspěšně vytvořena.';
                 } else {
-                    echo $slozka;
-                    echo "složka existuje";die();
                     echo 'Složka již existuje.';
                 }
 

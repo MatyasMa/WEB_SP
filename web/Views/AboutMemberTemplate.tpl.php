@@ -34,9 +34,9 @@ $res .= '
                             <p><b>O členovi:</b><br> $m[o_clenovi]</p>
                             <p><b>Právo:</b><br> $pravoClena[nazev_prava]</p>";
 
-                            if ($poziceClena['id_pozice'] != null){
+                            if ($pravoClena['id'] == 4){
                                 $res .= "
-                                <p>Pozice: $poziceClena[id_pozice]</p>
+                                <p><b>Pozice:</b><br>$poziceClena[nazev_pozice]</p>
                                 ";
                             }
                         $res .= "</div>

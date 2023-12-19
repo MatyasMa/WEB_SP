@@ -26,18 +26,31 @@ class DatabaseModel {
      *  @param int $userId  ID uzivatele.
      */
     public function deleteMember(int $memberID):bool {
-        // pripravim dotaz
-        $q = "DELETE FROM ".TABLE_MEMBERS." WHERE id = $memberID";
-        // provedu dotaz
-        $res = $this->pdo->query($q);
-        // pokud neni false, tak vratim vysledek, jinak null
-        if ($res) {
-            // neni false
-            return true;
-        } else {
-            // je false
+
+        $vyberClena = "SELECT * FROM ".TABLE_MEMBERS." WHERE id = $memberID";
+
+        $mazanyClen = $this->pdo->query($vyberClena)->fetchAll();
+        $pravoMazaneho = $mazanyClen[0]['id_pravo'];
+
+        session_start();
+
+        if ($_SESSION['pravo'] == 2 && $pravoMazaneho == 1) {
             return false;
+        } else {
+            // pripravim dotaz
+            $q = "DELETE FROM ".TABLE_MEMBERS." WHERE id = $memberID";
+            // provedu dotaz
+            $res = $this->pdo->query($q);
+            // pokud neni false, tak vratim vysledek, jinak null
+            if ($res) {
+                // neni false
+                return true;
+            } else {
+                // je false
+                return false;
+            }
         }
+
     }
 
     public function deleteAttending(int $id_event, int $id_member):bool {

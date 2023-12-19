@@ -64,17 +64,6 @@ const WEB_PAGES = array(
     ),
     //// KONEC: Zapis na akce ////
 
-    //// Prehled clenu ////
-    "clenove" => array(
-        "title" => "Přehled členů",
-        "nav_title" => "Členové",
-
-        //// kontroler
-        "file_name" => "MembersController.class.php",
-        "class_name" => "MembersController",
-    ),
-    //// KONEC: Prehled clenu ////
-
     //// Pridani nove akce ////
     "pridani-akce" => array(
         "title" => "Přidání nové akce",
@@ -86,10 +75,32 @@ const WEB_PAGES = array(
     ),
     //// KONEC: Pridani nove akce ////
 
+    //// Přehled všech akcí pro úpravy////
+    "prehled-akci" => array(
+        "title" => "Přehled akcí",
+        "nav_title" => "Přehled akcí",
+
+        //// kontroler
+        "file_name" => "EventModifyController.class.php",
+        "class_name" => "EventModifyController",
+    ),
+    //// KONEC: Přehled akcí ////
+
+    //// Prehled clenu ////
+    "clenove" => array(
+        "title" => "Přehled členů",
+        "nav_title" => "Členové",
+
+        //// kontroler
+        "file_name" => "MembersController.class.php",
+        "class_name" => "MembersController",
+    ),
+    //// KONEC: Prehled clenu ////
+
     //// Registrace noveho clena ////
     "registrace" => array(
         "title" => "Registrace nového člena",
-        "nav_title" => "Registrace",
+        "nav_title" => "Nový člen",
 
         //// kontroler
         "file_name" => "RegistrationController.class.php",
@@ -97,16 +108,6 @@ const WEB_PAGES = array(
     ),
     //// KONEC: Prehled clenu ////
 
-    //// Přehled všech akcí pro úpravy////
-    "prehled-akci" => array(
-        "title" => "Přehled akcí",
-        "nav_title" => "Úprava akcí",
-
-        //// kontroler
-        "file_name" => "EventModifyController.class.php",
-        "class_name" => "EventModifyController",
-    ),
-    //// KONEC: Přehled akcí ////
 
     //// Stránka o členovi ////
     "o-clenovi" => array(
