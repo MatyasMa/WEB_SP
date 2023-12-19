@@ -2,10 +2,6 @@
 
 class ApplicationStart {
 
-    // TODO: odebrat atributy u všech formulářů
-    // TODO: je bezpečné get z url ?
-    // TODO: vycentrovat navigaci
-
     public function __construct()
     {
         require_once(DIRECTORY_CONTROLLERS."/IController.interface.php");

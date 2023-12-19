@@ -36,14 +36,15 @@ class LoginController extends ControllerBasics implements IController
         if($_SESSION['prihlaseny'] == true) {
             header("Location: index.php?page=zapis-na-akce");
         } else {
+            //// vypsani prislusne sablony
+            // zapnu output buffer pro odchyceni vypisu sablony
             ob_start();
             // pripojim sablonu, cimz ji i vykonam
             require(DIRECTORY_VIEWS ."/LoginTemplate.tpl.php");
         }
 
 
-        //// vypsani prislusne sablony
-        // zapnu output buffer pro odchyceni vypisu sablony
+
 
 
         // ziskam obsah output bufferu, tj. vypsanou sablonu

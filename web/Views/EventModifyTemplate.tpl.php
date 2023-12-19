@@ -60,13 +60,6 @@ $res .= "</tbody></table></div>";
 $res .= "</div>";
 
 
-/*
-TODO: editace
-$res .= '
-<script src="../../js/editace.js">
-</script>
-';
-*/
 
 echo $res;
 
