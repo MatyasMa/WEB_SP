@@ -97,7 +97,6 @@ class RegistrationController extends ControllerBasics implements IController
 
                 // Vytvoření složky
                 if (!file_exists($slozka)) {
-                    // todo: nefunguje!!!
                     mkdir($slozka, 0777, true); // třetí parametr true znamená vytvořit i nadřazené složky, pokud neexistují
                     //error_reporting(E_ALL);
                     //ini_set('display_errors', 1);
