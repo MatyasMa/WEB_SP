@@ -98,11 +98,153 @@ body {
 
 /* Stranka Clenove */
 .prehled_clenu {
-    margin-top: 20vh;
+    margin-top: 15vh;
 }
 .prehled_clenu table {
     margin: auto;
 }
+
+
+
+/* ZÁPIS NA TERMÍNY */
+.zapisIntro {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+.zapisIntro h2 {
+    margin-bottom: 150px;
+    font-size: 3rem;
+}
+.zapisIntro  i {
+    position: absolute;
+    margin-top: 30%;
+    color: white;
+    font-size: 2.5rem;
+}
+.akceBox {
+    width: 100vw;
+    background: linear-gradient(to right, #d7a5a5, #c58080, indianred);;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    row-gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.akceBox__nadpis::after {
+    content: "";
+    display: block;
+    height: 5px;
+    border-radius: 5px;
+    background-color: black;
+    width: 25%;
+    position: absolute;
+}
+.akceBox__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: green;
+    width: 30vw;
+    min-width: 400px;
+    margin: 0 10px;
+    color: white;
+    box-shadow: 2px 2px 10px black;
+}
+.akceBox__box a {
+    text-decoration: none;
+    color: inherit;
+    transition: 200ms ease all;
+}
+.akceBox__box a:hover {
+    color: #c4c4c4;
+}
+.akceBox__box__text {
+    margin: 20px;
+    width: 80%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.akceBox__box__text__nadpis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.akceBox__box__text__nadpis h2 {
+    text-align: left;
+    width: 100%;
+}
+.akceBox__box__text__nadpis svg {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+.akceBox__box__paticka {
+    min-height: 100px;
+    padding: 20px 40px;
+    background-color: rgb(0, 97, 24);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.akceBox__box__paticka__potvrzeni__ne {
+    margin-left: 10px;
+    background-color: rgb(255, 3, 3);
+}
+.akceBox__box__paticka__potvrzeni__ano {
+    background-color: rgb(0, 255, 0);
+}
+.akceBox__box__paticka__potvrzeni div button svg {
+    transition: 300ms ease all;
+}
+.akceBox__box__paticka__potvrzeni div button {
+    background: none;
+    border: none;
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.akceBox__box__paticka__potvrzeni div:hover button svg {
+    font-size: 2.5rem;
+}
+.akceBox__box__paticka__potvrzeni div {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: 5px 5px 10px black;
+    transition: 300ms ease-in-out all;
+}
+.akceBox__box__paticka__potvrzeni{
+    display: flex;
+}
+.akceBox__box__paticka p {
+    color: rgb(193, 193, 193);
+}
+
+
+
+
+
+
+
 
 
 @media screen and (max-width: 991px) {

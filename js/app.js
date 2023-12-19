@@ -10,6 +10,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
+/*
 document.addEventListener("DOMContentLoaded", function() {
     // Get the current file name
     var currentFileName = window.location.pathname.split('/').pop();
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+*/
 
 document.addEventListener('DOMContentLoaded', function() {
     var password = document.getElementById("password");
@@ -44,8 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    password.addEventListener('input', validatePassword);
-    confirm_password.addEventListener('input', validatePassword);
+    if(password != null && confirm_password != null) {
+        password.addEventListener('input', validatePassword);
+        confirm_password.addEventListener('input', validatePassword);
+    }
 });
 
 function vyberPrava() {

@@ -1,15 +1,24 @@
 <?php
-    include('header.php');
-?>
+
+global $tplData;
+
+require(DIRECTORY_VIEWS ."/TemplateBasics.class.php");
+$tplHeaders = new TemplateBasics();
+
+
+// hlavicka
+$tplHeaders->getHTMLHeader($tplData['title']);
+
+echo '
 
 <div class="intro">
     <img src="img/eventbg.jpeg">
     <div class="intro_photo_prekryti col-12 d-flex justify-content-center align-items-center">
         <div class="new_event_background mt-5 p-4 rounded-5 col-lg-8 col-10 text-white">
             <div class="row justify-content-center">
-                <div class="col-md-8 col-md-10">
+                <div class="col-md-8 col-md-10 mt-5">
                     <h2 class="new_event_headline mb-4">Přidání nové akce</h2>
-                    <form id="pridani_akce" action="forms/new_event.php" method="post" onsubmit="return kontrolaDatumu(2);" enctype="multipart/form-data" >
+                    <form id="pridani_akce" method="post" onsubmit="return kontrolaDatumu(2);">
                         <div class="form-group">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="option" id="trenink" value="trenink" required checked>
@@ -25,7 +34,7 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <textarea class="form-control" id="description" rows="4" placeholder="Popis..." required></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="4" placeholder="Popis..."></textarea>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6 mt-3">
@@ -41,6 +50,7 @@
                             <p id="vypis_kontrola_vstupu">&nbsp</p>
                         </div>
                         <button type="submit" class="col-7 p-2 btn margin-auto mt-5 text-white offset-md-5"
+                                name="action" value="add_event"
                                 style="background-color: indianred">Odeslat</button>
                     </form>
                 </div>
@@ -49,6 +59,9 @@
     </div>
 </div>
 
-<?php
-    include('footer.php');
+';
+
+
+
+
 ?>
